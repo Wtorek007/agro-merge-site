@@ -1,0 +1,34 @@
+---
+import { getCollection } from "astro:content";
+import PageLayout from "../../layouts/PageLayout.astro";
+import PricingCard from "../../components/software/PricingCard.astro";
+
+const items = await getCollection("software");
+const tierOrder = { starter: 0, pro: 1, enterprise: 2 };
+const sorted = items.sort(
+  (a, b) => tierOrder[a.data.tier] - tierOrder[b.data.tier]
+);
+---
+
+<PageLayout
+  title="Software"
+  description="Licencje platformy Agro-Merge — Starter, Pro i Enterprise. Dashboard, analityka i integracje."
+  heading="Software"
+  subheading="Licencje platformy analitycznej — od podstawowego dashboardu po pełne rozwiązanie Enterprise."
+>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    {
+      sorted.map((item) => (
+        <PricingCard
+          title={item.data.title}
+          description={item.data.description}
+          price={item.data.price}
+          features={item.data.features}
+          tier={item.data.tier}
+          href={`/software/${item.id}`}
+          highlighted={item.data.tier === "pro"}
+        />
+      ))
+    }
+  </div>
+</PageLayout>

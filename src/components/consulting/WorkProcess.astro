@@ -1,0 +1,51 @@
+---
+import SectionHeading from "../ui/SectionHeading.astro";
+import { workProcessSteps } from "../../utils/workProcess";
+---
+
+<section class="py-20 bg-white">
+  <div class="container mx-auto px-6">
+    <SectionHeading
+      title="Poznaj kamienie milowe i zobacz, jak eksploruję Twój problem"
+      subtitle="Łączenie mądrości dla lepszych plonów — sprawdzony proces od analizy po wdrożenie."
+      centered
+    />
+
+    <div class="max-w-4xl mx-auto">
+      <div class="relative">
+        <div class="absolute left-6 md:left-8 top-0 bottom-0 w-px bg-agro-gold/30 hidden sm:block"></div>
+
+        <div class="space-y-8">
+          {
+            workProcessSteps.map((item) => (
+              <div class="relative flex gap-6 md:gap-10">
+                <div class="hidden sm:flex shrink-0 w-16 h-16 rounded-full bg-agro-primary text-agro-gold border-2 border-agro-gold/40 items-center justify-center font-bold text-lg z-10">
+                  {item.step}
+                </div>
+                <div class="flex-1 bg-agro-muted rounded-2xl p-6 md:p-8 border border-agro-gold/15 hover:border-agro-gold/30 transition-colors">
+                  <div class="flex items-center gap-3 mb-3 sm:hidden">
+                    <span class="w-10 h-10 rounded-full bg-agro-primary text-agro-gold flex items-center justify-center font-bold text-sm">
+                      {item.step}
+                    </span>
+                    <span class="text-xs font-semibold uppercase tracking-wider text-agro-copper">
+                      Krok {item.step}
+                    </span>
+                  </div>
+                  <p class="hidden sm:block text-xs font-semibold uppercase tracking-wider text-agro-copper mb-2">
+                    Krok {item.step}
+                  </p>
+                  <h3 class="text-xl md:text-2xl font-bold text-agro-primary">
+                    {item.title}
+                  </h3>
+                  <p class="mt-3 text-agro-primary/70 leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

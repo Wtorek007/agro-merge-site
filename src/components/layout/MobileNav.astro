@@ -1,0 +1,93 @@
+---
+import { navItems } from "../../utils/navigation";
+
+const currentPath = Astro.url.pathname;
+---
+
+<div class="md:hidden">
+  <button
+    id="mobile-menu-btn"
+    type="button"
+    class="p-2 rounded-lg text-agro-gold hover:bg-white/10"
+    aria-label="Otwórz menu"
+    aria-expanded="false"
+  >
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M4 6h16M4 12h16M4 18h16"></path>
+    </svg>
+  </button>
+
+  <div
+    id="mobile-menu"
+    class="hidden fixed inset-0 z-50 bg-black/60"
+    aria-hidden="true"
+  >
+    <div class="absolute right-0 top-0 h-full w-72 bg-agro-primary shadow-xl p-6 border-l border-agro-gold/20">
+      <button
+        id="mobile-menu-close"
+        type="button"
+        class="absolute top-4 right-4 p-2 rounded-lg text-agro-gold hover:bg-white/10"
+        aria-label="Zamknij menu"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+      <nav class="mt-12 flex flex-col gap-2">
+        {
+          navItems.map((item) => {
+            const isActive =
+              item.href === "/"
+                ? currentPath === "/"
+                : currentPath.startsWith(item.href);
+            return (
+              <a
+                href={item.href}
+                class:list={[
+                  "px-4 py-3 rounded-lg text-base font-medium transition-colors",
+                  isActive
+                    ? "bg-agro-gold/15 text-agro-gold"
+                    : "text-white/70 hover:text-agro-gold hover:bg-white/5",
+                ]}
+              >
+                {item.label}
+              </a>
+            );
+          })
+        }
+      </nav>
+    </div>
+  </div>
+</div>
+
+<script>
+  const btn = document.getElementById("mobile-menu-btn");
+  const menu = document.getElementById("mobile-menu");
+  const close = document.getElementById("mobile-menu-close");
+
+  function openMenu() {
+    menu?.classList.remove("hidden");
+    btn?.setAttribute("aria-expanded", "true");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeMenu() {
+    menu?.classList.add("hidden");
+    btn?.setAttribute("aria-expanded", "false");
+    document.body.style.overflow = "";
+  }
+
+  btn?.addEventListener("click", openMenu);
+  close?.addEventListener("click", closeMenu);
+  menu?.addEventListener("click", (e) => {
+    if (e.target === menu) closeMenu();
+  });
+</script>

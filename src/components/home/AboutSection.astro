@@ -1,0 +1,63 @@
+---
+import SectionHeading from "../ui/SectionHeading.astro";
+---
+
+<section class="py-20 bg-white">
+  <div class="container mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <SectionHeading
+          title="Łączenie mądrości dla lepszych plonów"
+          subtitle="Wspieramy gospodarstwa rolne w cyfrowej transformacji — od analizy potrzeb po wdrożenie i rozwój rozwiązań."
+        />
+        <p class="text-agro-primary/70 leading-relaxed">
+          AgroMerge to partner technologiczny dla nowoczesnego rolnictwa. Łączymy
+          niezawodny sprzęt pomiarowy z intuicyjnym oprogramowaniem analitycznym,
+          abyś mógł podejmować trafniejsze decyzje na podstawie danych z pola.
+        </p>
+        <ul class="mt-6 space-y-3">
+          {
+            [
+              "Dogłębna analiza potrzeb gospodarstwa",
+              "Sprzęt i software dopasowane do skali upraw",
+              "Wsparcie na każdym etapie wdrożenia",
+              "Ciągły rozwój i aktualizacje platformy",
+            ].map((item) => (
+              <li class="flex items-start gap-3 text-agro-primary/80">
+                <svg
+                  class="w-5 h-5 text-agro-gold mt-0.5 shrink-0"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                {item}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div class="bg-agro-muted rounded-2xl p-8 md:p-12 border border-agro-gold/15">
+        <div class="grid grid-cols-2 gap-6">
+          {
+            [
+              { value: "500+", label: "Wdrożonych stacji" },
+              { value: "120+", label: "Gospodarstw" },
+              { value: "15+", label: "Lat doświadczenia" },
+              { value: "24/7", label: "Monitoring danych" },
+            ].map((stat) => (
+              <div class="text-center p-4">
+                <div class="text-3xl font-bold text-agro-copper">{stat.value}</div>
+                <div class="mt-1 text-sm text-agro-primary/60">{stat.label}</div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,51 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import HardwareSpecs from "../../components/hardware/HardwareSpecs.astro";
+import Badge from "../../components/ui/Badge.astro";
+import ContactCTA from "../../components/ui/ContactCTA.astro";
+import Button from "../../components/ui/Button.astro";
+
+export async function getStaticPaths() {
+  const items = await getCollection("hardware");
+  return items.map((item) => ({
+    params: { slug: item.id },
+    props: { item },
+  }));
+}
+
+const { item } = Astro.props;
+const { Content } = await render(item);
+const { title, description, specs, featured } = item.data;
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="bg-gradient-to-br from-agro-primary via-agro-surface to-agro-primary-dark text-white py-20 border-b border-agro-gold/20">
+    <div class="container mx-auto px-6">
+      {featured && <Badge variant="accent">Polecany produkt</Badge>}
+      <h1 class="mt-4 text-4xl md:text-5xl font-bold">{title}</h1>
+      <p class="mt-4 text-lg text-white/80 max-w-2xl">{description}</p>
+    </div>
+  </section>
+
+  <div class="container mx-auto px-6 py-16">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <div class="lg:col-span-2 prose prose-lg prose-green max-w-none">
+        <Content />
+      </div>
+      {
+        specs && specs.length > 0 && (
+          <div>
+            <HardwareSpecs specs={specs} />
+            <div class="mt-6">
+              <Button href="/kontakt" variant="primary" class="w-full">
+                Zapytaj o produkt
+              </Button>
+            </div>
+          </div>
+        )
+      }
+    </div>
+  </div>
+  <ContactCTA />
+</BaseLayout>

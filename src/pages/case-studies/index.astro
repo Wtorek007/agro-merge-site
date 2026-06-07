@@ -1,0 +1,21 @@
+---
+import { getCollection } from "astro:content";
+import PageLayout from "../../layouts/PageLayout.astro";
+import CaseStudyCard from "../../components/case-studies/CaseStudyCard.astro";
+
+const studies = await getCollection("case-studies");
+const sorted = studies.sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+---
+
+<PageLayout
+  title="Case Studies"
+  description="Realizacje Agro-Merge — zobacz, jak gospodarstwa wykorzystują nasze rozwiązania."
+  heading="Case Studies"
+  subheading="Prawdziwe historie gospodarstw, które zdigitalizowały swoje operacje dzięki Agro-Merge."
+>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {sorted.map((study) => <CaseStudyCard entry={study} />)}
+  </div>
+</PageLayout>

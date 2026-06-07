@@ -1,0 +1,39 @@
+---
+import type { CollectionEntry } from "astro:content";
+import Card from "../ui/Card.astro";
+import Badge from "../ui/Badge.astro";
+
+interface Props {
+  entry: CollectionEntry<"case-studies">;
+}
+
+const { entry } = Astro.props;
+const { title, client, industry, results } = entry.data;
+const formattedDate = entry.data.date.toLocaleDateString("pl-PL", {
+  year: "numeric",
+  month: "long",
+});
+---
+
+<Card href={`/case-studies/${entry.id}`}>
+  <div class="p-6">
+    <div class="flex items-center justify-between mb-3">
+      <Badge variant="accent">{industry}</Badge>
+      <span class="text-xs text-agro-primary/40">{formattedDate}</span>
+    </div>
+    <h3 class="text-xl font-bold text-agro-primary">{title}</h3>
+    <p class="mt-2 text-sm text-agro-primary/50">Klient: {client}</p>
+    {
+      results.length > 0 && (
+        <ul class="mt-4 space-y-1">
+          {results.slice(0, 2).map((result) => (
+            <li class="text-sm text-agro-primary/70 flex items-start gap-2">
+              <span class="text-agro-gold mt-0.5">✓</span>
+              {result}
+            </li>
+          ))}
+        </ul>
+      )
+    }
+  </div>
+</Card>

@@ -1,0 +1,48 @@
+---
+import { navItems } from "../../utils/navigation";
+import MobileNav from "./MobileNav.astro";
+import Logo from "./Logo.astro";
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-50 bg-agro-primary/95 backdrop-blur border-b border-agro-gold/20">
+  <div class="container mx-auto px-6">
+    <div class="flex items-center justify-between h-24">
+      <Logo variant="header" />
+
+      <nav class="hidden md:flex items-center gap-1">
+        {
+          navItems.map((item) => {
+            const isActive =
+              item.href === "/"
+                ? currentPath === "/"
+                : currentPath.startsWith(item.href);
+            return (
+              <a
+                href={item.href}
+                class:list={[
+                  "px-4 py-2 rounded-lg text-sm font-medium transition-colors",
+                  isActive
+                    ? "bg-agro-gold/15 text-agro-gold"
+                    : "text-white/70 hover:text-agro-gold hover:bg-white/5",
+                ]}
+              >
+                {item.label}
+              </a>
+            );
+          })
+        }
+      </nav>
+
+      <a
+        href="/kontakt"
+        class="hidden md:inline-flex px-5 py-2.5 bg-agro-gold text-agro-primary text-sm font-semibold rounded-lg hover:bg-agro-gold-light transition-colors"
+      >
+        Skontaktuj się
+      </a>
+
+      <MobileNav />
+    </div>
+  </div>
+</header>

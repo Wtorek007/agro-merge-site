@@ -1,0 +1,84 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Badge from "../../components/ui/Badge.astro";
+import ContactCTA from "../../components/ui/ContactCTA.astro";
+import Button from "../../components/ui/Button.astro";
+
+export async function getStaticPaths() {
+  const items = await getCollection("software");
+  return items.map((item) => ({
+    params: { slug: item.id },
+    props: { item },
+  }));
+}
+
+const { item } = Astro.props;
+const { Content } = await render(item);
+const { title, description, price, features, tier } = item.data;
+
+const tierLabels = {
+  starter: "Starter",
+  pro: "Pro",
+  enterprise: "Enterprise",
+};
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="bg-gradient-to-br from-agro-primary via-agro-surface to-agro-primary-dark text-white py-20 border-b border-agro-gold/20">
+    <div class="container mx-auto px-6">
+      <Badge variant="accent">{tierLabels[tier]}</Badge>
+      <h1 class="mt-4 text-4xl md:text-5xl font-bold">{title}</h1>
+      <p class="mt-4 text-lg text-white/80 max-w-2xl">{description}</p>
+      {
+        price && (
+          <p class="mt-6 text-3xl font-bold">
+            {price}
+            {tier !== "enterprise" && (
+              <span class="text-lg font-normal text-white/60"> / rok</span>
+            )}
+          </p>
+        )
+      }
+    </div>
+  </section>
+
+  <div class="container mx-auto px-6 py-16">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <div class="lg:col-span-2 prose prose-lg prose-green max-w-none">
+        <Content />
+      </div>
+      <div>
+        <div class="bg-agro-muted rounded-2xl p-8 sticky top-24">
+          <h3 class="text-lg font-bold text-gray-900 mb-6">Co zawiera licencja</h3>
+          <ul class="space-y-3">
+            {
+              features.map((feature) => (
+                <li class="flex items-start gap-2 text-sm text-gray-700">
+                  <svg
+                    class="w-4 h-4 text-agro-primary mt-0.5 shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                  {feature}
+                </li>
+              ))
+            }
+          </ul>
+          <div class="mt-8">
+            <Button href="/kontakt" variant="primary" class="w-full">
+              Zamów demo
+            </Button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ContactCTA />
+</BaseLayout>

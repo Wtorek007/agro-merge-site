@@ -1,0 +1,64 @@
+---
+import { navItems } from "../../utils/navigation";
+import Logo from "./Logo.astro";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-agro-primary text-white/70 border-t border-agro-gold/20">
+  <div class="container mx-auto px-6 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+      <div>
+        <Logo variant="footer" />
+        <p class="mt-4 text-sm text-white/50 leading-relaxed">
+          Łączymy sprzęt i oprogramowanie dla nowoczesnego rolnictwa precyzyjnego.
+          Od pola do dashboardu.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-agro-gold font-semibold mb-4">Nawigacja</h3>
+        <ul class="space-y-2">
+          {
+            navItems.map((item) => (
+              <li>
+                <a
+                  href={item.href}
+                  class="text-sm hover:text-agro-gold transition-colors"
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-agro-gold font-semibold mb-4">Kontakt</h3>
+        <ul class="space-y-2 text-sm">
+          <li>Polska, Warszawa</li>
+          <li>
+            <a href="mailto:kontakt@agro-merge.pl" class="hover:text-agro-gold transition-colors">
+              kontakt@agro-merge.pl
+            </a>
+          </li>
+          <li>
+            <a href="tel:+48123456789" class="hover:text-agro-gold transition-colors">
+              +48 123 456 789
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-12 pt-8 border-t border-agro-gold/15 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-sm text-white/40">
+        &copy; {year} AgroMerge. Wszelkie prawa zastrzeżone.
+      </p>
+      <p class="font-script text-agro-gold text-base">
+        Merging wisdom for the better yields
+      </p>
+    </div>
+  </div>
+</footer>

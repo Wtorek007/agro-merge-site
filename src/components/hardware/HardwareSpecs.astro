@@ -1,0 +1,26 @@
+---
+interface Spec {
+  label: string;
+  value: string;
+}
+
+interface Props {
+  specs: Spec[];
+}
+
+const { specs } = Astro.props;
+---
+
+<div class="bg-agro-muted rounded-2xl p-8 border border-agro-gold/15">
+  <h3 class="text-lg font-bold text-agro-primary mb-6">Specyfikacja techniczna</h3>
+  <dl class="space-y-4">
+    {
+      specs.map((spec) => (
+        <div class="flex justify-between items-start border-b border-agro-gold/10 pb-3 last:border-0">
+          <dt class="text-sm font-medium text-agro-primary/60">{spec.label}</dt>
+          <dd class="text-sm text-agro-primary text-right">{spec.value}</dd>
+        </div>
+      ))
+    }
+  </dl>
+</div>

@@ -1,0 +1,30 @@
+---
+import type { CollectionEntry } from "astro:content";
+import Card from "../ui/Card.astro";
+import Badge from "../ui/Badge.astro";
+
+interface Props {
+  entry: CollectionEntry<"blog">;
+}
+
+const { entry } = Astro.props;
+const { title, description, pubDate, tags } = entry.data;
+const formattedDate = pubDate.toLocaleDateString("pl-PL", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
+---
+
+<Card href={`/blog/${entry.id}`}>
+  <div class="p-6">
+    <div class="flex flex-wrap gap-2 mb-3">
+      {tags.slice(0, 2).map((tag) => <Badge>{tag}</Badge>)}
+    </div>
+    <h3 class="text-xl font-bold text-agro-primary">{title}</h3>
+    <p class="mt-2 text-agro-primary/60 text-sm leading-relaxed line-clamp-3">
+      {description}
+    </p>
+    <p class="mt-4 text-xs text-agro-primary/40">{formattedDate}</p>
+  </div>
+</Card>

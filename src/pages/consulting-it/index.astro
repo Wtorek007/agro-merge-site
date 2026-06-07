@@ -1,0 +1,47 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import WorkProcess from "../../components/consulting/WorkProcess.astro";
+import ConsultingGrid from "../../components/consulting/ConsultingGrid.astro";
+import SectionHeading from "../../components/ui/SectionHeading.astro";
+import ContactCTA from "../../components/ui/ContactCTA.astro";
+
+const services = await getCollection("consulting");
+const sorted = services.sort((a, b) => a.data.title.localeCompare(b.data.title));
+---
+
+<BaseLayout
+  title="Consulting IT"
+  description="Consulting IT AgroMerge — architektura, analiza, DDD, wdrożenia aplikacji i wsparcie projektów IT dla rolnictwa precyzyjnego."
+>
+  <section class="bg-gradient-to-br from-agro-primary via-agro-surface to-agro-primary-dark text-white py-20 border-b border-agro-gold/20">
+    <div class="container mx-auto px-6">
+      <p class="text-agro-gold uppercase tracking-widest text-sm mb-4 font-medium">
+        Consulting IT
+      </p>
+      <h1 class="text-4xl md:text-5xl font-bold">Jak pracuję</h1>
+      <p class="mt-4 font-script text-agro-gold text-xl italic">
+        Merging wisdom for the better yields
+      </p>
+      <p class="mt-4 text-lg text-white/70 max-w-2xl">
+        Wspieram gospodarstwa i firmy agronomiczne w projektowaniu, budowie i wdrażaniu
+        rozwiązań IT — od analizy biznesowej po działającą platformę.
+      </p>
+    </div>
+  </section>
+
+  <WorkProcess />
+
+  <section class="py-20 bg-agro-muted">
+    <div class="container mx-auto px-6">
+      <SectionHeading
+        title="Co oferuję"
+        subtitle="Kompleksowe usługi consultingowe IT — od architektury po wdrożenie i administrację."
+        centered
+      />
+      <ConsultingGrid items={sorted} />
+    </div>
+  </section>
+
+  <ContactCTA />
+</BaseLayout>

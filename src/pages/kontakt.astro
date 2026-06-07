@@ -1,0 +1,107 @@
+---
+import PageLayout from "../layouts/PageLayout.astro";
+import Button from "../components/ui/Button.astro";
+---
+
+<PageLayout
+  title="Kontakt"
+  description="Skontaktuj się z AgroMerge — omów wdrożenie sprzętu i oprogramowania dla Twojego gospodarstwa."
+  heading="Kontakt"
+  subheading="Masz pytania? Chętnie odpowiemy i omówimy możliwości współpracy."
+  showCta={false}
+>
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+    <div>
+      <h2 class="text-2xl font-bold text-agro-primary mb-6">Dane kontaktowe</h2>
+      <ul class="space-y-6">
+        <li class="flex items-start gap-4">
+          <div class="w-10 h-10 rounded-lg bg-agro-gold/15 flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5 text-agro-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+          </div>
+          <div>
+            <p class="font-semibold text-agro-primary">Adres</p>
+            <p class="text-agro-primary/60">Polska, Warszawa</p>
+          </div>
+        </li>
+        <li class="flex items-start gap-4">
+          <div class="w-10 h-10 rounded-lg bg-agro-gold/15 flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5 text-agro-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <div>
+            <p class="font-semibold text-agro-primary">E-mail</p>
+            <a href="mailto:kontakt@agro-merge.pl" class="text-agro-copper hover:underline">
+              kontakt@agro-merge.pl
+            </a>
+          </div>
+        </li>
+        <li class="flex items-start gap-4">
+          <div class="w-10 h-10 rounded-lg bg-agro-gold/15 flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5 text-agro-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+          </div>
+          <div>
+            <p class="font-semibold text-agro-primary">Telefon</p>
+            <a href="tel:+48123456789" class="text-agro-copper hover:underline">
+              +48 123 456 789
+            </a>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="bg-white rounded-2xl p-8 border border-agro-gold/15 shadow-sm">
+      <h2 class="text-2xl font-bold text-agro-primary mb-2">Wyślij wiadomość</h2>
+      <p class="text-sm text-agro-primary/50 mb-6">
+        Formularz wymaga podpięcia backendu — szczegóły poniżej.
+      </p>
+      <form class="space-y-4" id="contact-form">
+        <div>
+          <label for="name" class="block text-sm font-medium text-agro-primary/80 mb-1">
+            Imię i nazwisko
+          </label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            class="w-full px-4 py-3 rounded-lg border border-agro-gold/20 bg-agro-muted focus:ring-2 focus:ring-agro-gold/40 focus:border-agro-gold outline-none"
+            placeholder="Jan Kowalski"
+          />
+        </div>
+        <div>
+          <label for="email" class="block text-sm font-medium text-agro-primary/80 mb-1">
+            E-mail
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            class="w-full px-4 py-3 rounded-lg border border-agro-gold/20 bg-agro-muted focus:ring-2 focus:ring-agro-gold/40 focus:border-agro-gold outline-none"
+            placeholder="jan@example.com"
+          />
+        </div>
+        <div>
+          <label for="message" class="block text-sm font-medium text-agro-primary/80 mb-1">
+            Wiadomość
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            rows="4"
+            required
+            class="w-full px-4 py-3 rounded-lg border border-agro-gold/20 bg-agro-muted focus:ring-2 focus:ring-agro-gold/40 focus:border-agro-gold outline-none resize-none"
+            placeholder="Opisz swoje potrzeby..."
+          ></textarea>
+        </div>
+        <Button variant="primary" class="w-full">Wyślij wiadomość</Button>
+      </form>
+    </div>
+  </div>
+</PageLayout>

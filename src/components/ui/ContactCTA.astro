@@ -1,0 +1,29 @@
+---
+import Button from "./Button.astro";
+---
+
+<section class="bg-agro-primary py-20 border-t border-agro-gold/20">
+  <div class="container mx-auto px-6 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold text-white">
+      Gotowy na transformację swojego gospodarstwa?
+    </h2>
+    <p class="mt-4 font-script text-agro-gold text-xl italic">
+      Merging wisdom for the better yields
+    </p>
+    <p class="mt-4 text-lg text-white/60 max-w-2xl mx-auto">
+      Skontaktuj się z nami, aby omówić wdrożenie sprzętu i oprogramowania
+      dopasowanego do Twoich potrzeb.
+    </p>
+    <div class="mt-8 flex flex-wrap justify-center gap-4">
+      <Button href="/kontakt" variant="primary" size="lg">
+        Skontaktuj się
+      </Button>
+      <a
+        href="/hardware"
+        class="inline-flex items-center justify-center px-8 py-4 border border-agro-gold/40 text-agro-gold rounded-lg font-semibold hover:bg-agro-gold/10 transition-colors"
+      >
+        Zobacz produkty
+      </a>
+    </div>
+  </div>
+</section>

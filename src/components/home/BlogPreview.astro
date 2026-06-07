@@ -1,0 +1,29 @@
+---
+import { getCollection } from "astro:content";
+import SectionHeading from "../ui/SectionHeading.astro";
+import BlogCard from "../blog/BlogCard.astro";
+import Button from "../ui/Button.astro";
+
+const allPosts = await getCollection("blog");
+const posts = allPosts
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+---
+
+<section class="py-20 bg-agro-muted">
+  <div class="container mx-auto px-6">
+    <SectionHeading
+      title="Blog"
+      subtitle="Aktualności, porady i trendy w rolnictwie precyzyjnym."
+      centered
+    />
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {posts.map((post) => <BlogCard entry={post} />)}
+    </div>
+    <div class="mt-12 text-center">
+      <Button href="/blog" variant="outline">
+        Wszystkie wpisy
+      </Button>
+    </div>
+  </div>
+</section>

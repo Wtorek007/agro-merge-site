@@ -1,0 +1,35 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import ContactCTA from "../components/ui/ContactCTA.astro";
+
+interface Props {
+  title: string;
+  description?: string;
+  heading: string;
+  subheading?: string;
+  showCta?: boolean;
+}
+
+const {
+  title,
+  description,
+  heading,
+  subheading,
+  showCta = true,
+} = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="bg-gradient-to-br from-agro-primary via-agro-surface to-agro-primary-dark text-white py-20 border-b border-agro-gold/20">
+    <div class="container mx-auto px-6">
+      <h1 class="text-4xl md:text-5xl font-bold">{heading}</h1>
+      {subheading && (
+        <p class="mt-4 text-lg text-white/70 max-w-2xl">{subheading}</p>
+      )}
+    </div>
+  </section>
+  <div class="container mx-auto px-6 py-16">
+    <slot />
+  </div>
+  {showCta && <ContactCTA />}
+</BaseLayout>

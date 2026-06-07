@@ -1,0 +1,29 @@
+---
+import { getCollection } from "astro:content";
+import SectionHeading from "../ui/SectionHeading.astro";
+import CaseStudyCard from "../case-studies/CaseStudyCard.astro";
+import Button from "../ui/Button.astro";
+
+const allStudies = await getCollection("case-studies");
+const studies = allStudies
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
+---
+
+<section class="py-20 bg-white">
+  <div class="container mx-auto px-6">
+    <SectionHeading
+      title="Case Studies"
+      subtitle="Zobacz, jak gospodarstwa wykorzystują nasze rozwiązania w praktyce."
+      centered
+    />
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {studies.map((study) => <CaseStudyCard entry={study} />)}
+    </div>
+    <div class="mt-12 text-center">
+      <Button href="/case-studies" variant="outline">
+        Wszystkie case studies
+      </Button>
+    </div>
+  </div>
+</section>

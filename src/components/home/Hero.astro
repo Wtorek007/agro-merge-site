@@ -1,0 +1,65 @@
+---
+import Button from "../ui/Button.astro";
+import Logo from "../layout/Logo.astro";
+
+const words = ["PRECYZJA", "DANE", "UPRAWA"];
+---
+
+<section
+  class="relative min-h-[90vh] flex items-center bg-gradient-to-br from-agro-primary via-agro-surface to-agro-primary-dark text-white overflow-hidden"
+>
+  <div
+    class="absolute inset-0 opacity-5"
+    style="background-image: radial-gradient(circle at 25% 25%, #c5a059 1px, transparent 1px); background-size: 40px 40px;"
+  >
+  </div>
+
+  <div class="container mx-auto px-6 py-24 relative z-10">
+    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-12">
+      <div class="max-w-3xl">
+        <p class="text-agro-gold uppercase tracking-widest text-sm mb-4 font-medium">
+          AgroMerge
+        </p>
+        <h1 class="text-5xl md:text-7xl font-bold leading-tight">
+          Łączymy sprzęt i oprogramowanie dla nowoczesnego rolnictwa
+        </h1>
+        <p class="mt-4 font-script text-agro-gold text-xl md:text-2xl italic">
+          Merging wisdom for the better yields
+        </p>
+        <p class="mt-6 text-xl text-white/75 max-w-2xl leading-relaxed">
+          Stacje pomiarowe, sensory i licencje software — kompletne rozwiązanie od pola do dashboardu.
+        </p>
+        <div class="mt-10 flex flex-wrap gap-4">
+          <Button href="/hardware" variant="primary" size="lg">
+            Zobacz Hardware
+          </Button>
+          <a
+            href="/software"
+            class="inline-flex items-center justify-center px-8 py-4 border border-agro-gold/50 text-agro-gold rounded-lg font-semibold hover:bg-agro-gold/10 transition-colors"
+          >
+            Licencje Software
+          </a>
+        </div>
+
+        <div class="mt-20 flex flex-wrap gap-8 md:gap-16">
+          {
+            words.map((word, i) => (
+              <div class="flex flex-col">
+                <span class="text-3xl md:text-4xl font-bold text-agro-gold/70 tracking-wider">
+                  {word}
+                </span>
+                <span class="mt-1 text-xs text-agro-copper/60 font-mono">
+                  0{i + 1}
+                </span>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <div class="hidden lg:flex justify-center items-center">
+        <Logo variant="hero" />
+      </div>
+    </div>
+  </div>
+</section>

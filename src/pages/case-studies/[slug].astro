@@ -1,0 +1,63 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Badge from "../../components/ui/Badge.astro";
+import ContactCTA from "../../components/ui/ContactCTA.astro";
+
+export async function getStaticPaths() {
+  const studies = await getCollection("case-studies");
+  return studies.map((study) => ({
+    params: { slug: study.id },
+    props: { study },
+  }));
+}
+
+const { study } = Astro.props;
+const { Content } = await render(study);
+const { title, client, industry, results, date } = study.data;
+const formattedDate = date.toLocaleDateString("pl-PL", {
+  year: "numeric",
+  month: "long",
+});
+---
+
+<BaseLayout title={title} description={`Case study: ${client} — ${industry}`}>
+  <section class="bg-gradient-to-br from-agro-primary via-agro-surface to-agro-primary-dark text-white py-20 border-b border-agro-gold/20">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-wrap items-center gap-3 mb-4">
+        <Badge variant="accent">{industry}</Badge>
+        <span class="text-sm text-white/60">{formattedDate}</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold">{title}</h1>
+      <p class="mt-4 text-lg text-white/80">Klient: {client}</p>
+    </div>
+  </section>
+
+  <div class="container mx-auto px-6 py-16">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <div class="lg:col-span-2 prose prose-lg prose-green max-w-none">
+        <Content />
+      </div>
+      {
+        results.length > 0 && (
+          <div>
+            <div class="bg-agro-muted rounded-2xl p-8 sticky top-24">
+              <h3 class="text-lg font-bold text-gray-900 mb-6">Kluczowe wyniki</h3>
+              <ul class="space-y-4">
+                {results.map((result) => (
+                  <li class="flex items-start gap-3 text-sm text-gray-700">
+                    <span class="w-6 h-6 rounded-full bg-agro-primary/10 text-agro-primary flex items-center justify-center shrink-0 text-xs font-bold">
+                      ✓
+                    </span>
+                    {result}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        )
+      }
+    </div>
+  </div>
+  <ContactCTA />
+</BaseLayout>
