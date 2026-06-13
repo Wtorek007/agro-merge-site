@@ -60,10 +60,26 @@ const consulting = defineCollection({
   }),
 });
 
+const agroAnaliza = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/agro-analiza" }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    category: z.enum(["mikro", "makro", "ceny", "prognoza"]),
+    horizon: z.enum(["2y", "3y", "5y"]).optional(),
+    products: z.array(z.string()).default([]),
+    grafanaUrl: z.string().url().optional(),
+    grafanaPanelHeight: z.number().default(480),
+    featured: z.boolean().default(false),
+    updatedAt: z.coerce.date().optional(),
+  }),
+});
+
 export const collections = {
   hardware,
   software,
   "case-studies": caseStudies,
   blog,
   consulting,
+  "agro-analiza": agroAnaliza,
 };

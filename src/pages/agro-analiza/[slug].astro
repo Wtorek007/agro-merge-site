@@ -1,0 +1,87 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import GrafanaEmbed from "../../components/agro-analiza/GrafanaEmbed.astro";
+import Badge from "../../components/ui/Badge.astro";
+import ContactCTA from "../../components/ui/ContactCTA.astro";
+import {
+  analysisCategories,
+  forecastHorizons,
+  type AnalysisCategory,
+} from "../../utils/agroAnaliza";
+
+export async function getStaticPaths() {
+  const items = await getCollection("agro-analiza");
+  return items.map((item) => ({
+    params: { slug: item.id },
+    props: { item },
+  }));
+}
+
+const { item } = Astro.props;
+const { Content } = await render(item);
+const {
+  title,
+  description,
+  category,
+  horizon,
+  products,
+  grafanaUrl,
+  grafanaPanelHeight,
+  updatedAt,
+} = item.data;
+
+const categoryMeta = analysisCategories[category as AnalysisCategory];
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="bg-gradient-to-br from-agro-primary via-agro-surface to-agro-primary-dark text-white py-20 border-b border-agro-gold/20">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-wrap items-center gap-2 mb-4">
+        <Badge variant="primary">{categoryMeta.label}</Badge>
+        {
+          horizon && (
+            <Badge variant="accent">
+              Prognoza: {forecastHorizons[horizon]}
+            </Badge>
+          )
+        }
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold">{title}</h1>
+      <p class="mt-4 text-lg text-white/70 max-w-3xl">{description}</p>
+      {
+        products.length > 0 && (
+          <div class="mt-6 flex flex-wrap gap-2">
+            {products.map((product) => (
+              <span class="px-3 py-1 text-sm rounded-full bg-white/10 text-agro-gold">
+                {product}
+              </span>
+            ))}
+          </div>
+        )
+      }
+      {
+        updatedAt && (
+          <p class="mt-4 text-sm text-white/50">
+            Ostatnia aktualizacja:{" "}
+            {updatedAt.toLocaleDateString("pl-PL", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })}
+          </p>
+        )
+      }
+    </div>
+  </section>
+
+  <div class="container mx-auto px-6 py-16 max-w-5xl">
+    <GrafanaEmbed src={grafanaUrl} title={title} height={grafanaPanelHeight} />
+
+    <div class="mt-12 prose prose-lg max-w-none prose-headings:text-agro-primary prose-a:text-agro-copper">
+      <Content />
+    </div>
+  </div>
+
+  <ContactCTA />
+</BaseLayout>

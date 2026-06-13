@@ -1,0 +1,38 @@
+---
+import type { CollectionEntry } from "astro:content";
+import SectionHeading from "../ui/SectionHeading.astro";
+import AnalysisCard from "./AnalysisCard.astro";
+import {
+  analysisCategories,
+  type AnalysisCategory,
+} from "../../utils/agroAnaliza";
+
+interface Props {
+  items: CollectionEntry<"agro-analiza">[];
+}
+
+const { items } = Astro.props;
+
+const categories = Object.entries(analysisCategories) as [
+  AnalysisCategory,
+  (typeof analysisCategories)[AnalysisCategory],
+][];
+---
+
+{
+  categories.map(([key, meta]) => {
+    const categoryItems = items.filter((item) => item.data.category === key);
+    if (categoryItems.length === 0) return null;
+
+    return (
+      <section class="py-12 border-t border-agro-gold/10 first:border-0 first:pt-0">
+        <SectionHeading title={meta.label} subtitle={meta.description} />
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {categoryItems.map((item) => (
+            <AnalysisCard entry={item} />
+          ))}
+        </div>
+      </section>
+    );
+  })
+}

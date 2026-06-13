@@ -1,0 +1,63 @@
+---
+import type { CollectionEntry } from "astro:content";
+import Card from "../ui/Card.astro";
+import Badge from "../ui/Badge.astro";
+import {
+  analysisCategories,
+  forecastHorizons,
+  type AnalysisCategory,
+} from "../../utils/agroAnaliza";
+
+interface Props {
+  entry: CollectionEntry<"agro-analiza">;
+}
+
+const { entry } = Astro.props;
+const { title, description, category, horizon, products, featured, updatedAt } =
+  entry.data;
+
+const categoryLabel = analysisCategories[category as AnalysisCategory].label;
+---
+
+<Card href={`/agro-analiza/${entry.id}`} class="h-full">
+  <div class="p-6 h-full flex flex-col">
+    <div class="flex flex-wrap items-center gap-2 mb-3">
+      <Badge variant={category === "prognoza" ? "accent" : "primary"}>
+        {categoryLabel}
+      </Badge>
+      {featured && <Badge variant="default">Wyróżnione</Badge>}
+      {
+        horizon && (
+          <Badge variant="accent">Horyzont: {forecastHorizons[horizon]}</Badge>
+        )
+      }
+    </div>
+    <h3 class="text-xl font-bold text-agro-primary">{title}</h3>
+    <p class="mt-2 text-agro-primary/70 text-sm leading-relaxed flex-1">
+      {description}
+    </p>
+    {
+      products.length > 0 && (
+        <div class="mt-4 flex flex-wrap gap-1.5">
+          {products.map((product) => (
+            <span class="text-xs px-2 py-0.5 rounded bg-agro-muted-dark text-agro-primary/70">
+              {product}
+            </span>
+          ))}
+        </div>
+      )
+    }
+    {
+      updatedAt && (
+        <p class="mt-4 text-xs text-agro-primary/40">
+          Aktualizacja:{" "}
+          {updatedAt.toLocaleDateString("pl-PL", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          })}
+        </p>
+      )
+    }
+  </div>
+</Card>
