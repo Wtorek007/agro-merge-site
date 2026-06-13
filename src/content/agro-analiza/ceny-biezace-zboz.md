@@ -3,7 +3,7 @@ title: "Ceny bieżące zbóż — pszenica, jęczmień, kukurydza"
 description: "Notowania hurtowe i indeksy cen zbóż w Polsce i UE — aktualizacja w czasie zbliżonym do rzeczywistego."
 category: "ceny"
 products: ["Pszenica", "Jęczmień", "Kukurydza"]
-featured: true
+featured: false
 updatedAt: 2026-06-01
 grafanaPanelHeight: 520
 ---
