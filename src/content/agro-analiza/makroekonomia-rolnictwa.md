@@ -5,8 +5,8 @@ category: "makro"
 products: ["GUS", "WPR", "Inflacja", "Kurs EUR/PLN"]
 featured: true
 updatedAt: 2026-06-10
-grafanaUrl: "https://generousalbatross446.grafana.net/d-solo/ma6894r/analiza-gus-rolnictwo?orgId=1&from=1420070400000&to=1767225600000&timezone=browser&panelId=panel-1"
-grafanaPanelHeight: 480
+grafanaUrl: "https://generousalbatross446.grafana.net/public-dashboards/2adf412454834e4facb4d426eb037bc7"
+grafanaPanelHeight: 720
 ---
 
 ## Kontekst makroekonomiczny
