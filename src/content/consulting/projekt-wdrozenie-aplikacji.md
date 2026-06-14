@@ -27,4 +27,4 @@ Oferuję kompleksowe usługi projektowania, budowy i wdrażania aplikacji webowy
 - Ekspresowe terminy realizacji dzięki AI-assisted development
 - Znacząca redukcja kosztów — bez konieczności dużego zespołu deweloperskiego
 - Pełna własność kodu i eksport do GitHub
-- Szybkie wdrożenie i hosting (np. AWS Lightsail)
+- Szybkie wdrożenie i hosting (np. AWS Lightsail, AZURE, Cloudflare, inne...)
