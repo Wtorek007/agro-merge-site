@@ -44,7 +44,7 @@ const blog = defineCollection({
     title: z.string(),
     description: z.string(),
     pubDate: z.coerce.date(),
-    author: z.string().default("Agro-Merge"),
+    author: z.string().default("AGRO-IT"),
     image: z.string().optional(),
     tags: z.array(z.string()).default([]),
   }),

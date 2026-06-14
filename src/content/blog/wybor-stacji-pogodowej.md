@@ -2,7 +2,7 @@
 title: "Jak wybrać stację pogodową dla swojego gospodarstwa"
 description: "Porównanie parametrów, lokalizacji montażu i integracji — praktyczny przewodnik zakupowy."
 pubDate: 2025-08-05
-author: "Agro-Merge"
+author: "AGRO-IT"
 tags: ["hardware", "stacja pogodowa", "poradnik"]
 ---
 
@@ -22,4 +22,4 @@ Wybierz stację z łącznością LTE lub LoRa — Wi-Fi działa tylko w pobliżu
 
 ## Integracja z platformą
 
-Upewnij się, że stacja integruje się z Twoją platformą analityczną. Stacje Agro-Merge Pro przesyłają dane co 5 minut bezpośrednio do Dashboard.
+Upewnij się, że stacja integruje się z Twoją platformą analityczną. Stacje AGRO-IT Pro przesyłają dane co 5 minut bezpośrednio do Dashboard.

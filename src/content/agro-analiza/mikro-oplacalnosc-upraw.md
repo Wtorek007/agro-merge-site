@@ -8,7 +8,7 @@ updatedAt: 2026-05-20
 
 ## Sezon bieżący
 
-Dashboard aktualizowany co tydzień w sezonie wegetacyjnym — łączy dane pogodowe z platformy AgroMerge z bieżącymi cenami skupu i szacunkami plonów.
+Dashboard aktualizowany co tydzień w sezonie wegetacyjnym — łączy dane pogodowe z platformy AGRO-IT z bieżącymi cenami skupu i szacunkami plonów.
 
 ## Decyzje wspierane przez analizę
 

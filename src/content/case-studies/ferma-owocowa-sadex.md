@@ -16,7 +16,7 @@ Sadex zarządza 85 ha sadów jabłkowych. Ręczne sterowanie nawadnianiem prowad
 
 ## Rozwiązanie
 
-Wdrożyliśmy 24 sensory wilgotności gleby, 2 stacje pogodowe oraz integrację z istniejącym systemem nawadniania kropelkowego przez API Agro-Merge Pro.
+Wdrożyliśmy 24 sensory wilgotności gleby, 2 stacje pogodowe oraz integrację z istniejącym systemem nawadniania kropelkowego przez API AGRO-IT Pro.
 
 ## Wyniki
 

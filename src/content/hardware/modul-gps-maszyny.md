@@ -17,7 +17,7 @@ specs:
 
 ## Opis produktu
 
-Moduł GPS Agro-Merge rejestruje każdy ruch maszyny na polu — trasę, prędkość, czas pracy i zużycie paliwa. Dane integrują się z platformą Agro-Merge do raportów efektywności.
+Moduł GPS AGRO-IT rejestruje każdy ruch maszyny na polu — trasę, prędkość, czas pracy i zużycie paliwa. Dane integrują się z platformą AGRO-IT do raportów efektywności.
 
 ## Funkcje
 

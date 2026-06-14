@@ -14,7 +14,7 @@ stages:
 
 Project manager (PM) w projekcie IT to osoba odpowiedzialna za całościowe prowadzenie projektu — od planowania, przez realizację, aż po zamknięcie. Planuje i organizuje pracę zespołu, ustala cele, harmonogramy oraz budżet projektu.
 
-## PM w projektach AgroMerge
+## PM w projektach AGRO-IT
 
 Prowadzę wdrożenia platform rolniczych — od pierwszej stacji pogodowej po pełną digitalizację gospodarstwa. Łączę świat IT z realiami pracy w polu.
 

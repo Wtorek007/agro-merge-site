@@ -1,5 +1,5 @@
 ---
-title: "Agro-Merge Enterprise"
+title: "AGRO-IT Enterprise"
 description: "Pełna platforma dla dużych gospodarstw i spółdzielni — SLA, dedykowany serwer i custom development."
 price: "Wycena indywidualna"
 tier: "enterprise"

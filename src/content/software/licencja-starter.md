@@ -1,5 +1,5 @@
 ---
-title: "Agro-Merge Starter"
+title: "AGRO-IT Starter"
 description: "Podstawowa licencja dla małych gospodarstw — dashboard, alerty i raporty tygodniowe."
 price: "990 zł"
 tier: "starter"
@@ -17,4 +17,4 @@ Licencja Starter jest idealna dla gospodarstw do 50 ha, które chcą rozpocząć
 
 ## Co zawiera?
 
-Pakiet obejmuje dostęp do platformy Agro-Merge Dashboard z podstawowymi funkcjami monitorowania i raportowania. Możliwość rozszerzenia w dowolnym momencie.
+Pakiet obejmuje dostęp do platformy AGRO-IT Dashboard z podstawowymi funkcjami monitorowania i raportowania. Możliwość rozszerzenia w dowolnym momencie.

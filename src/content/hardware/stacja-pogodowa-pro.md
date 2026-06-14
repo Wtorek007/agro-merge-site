@@ -17,7 +17,7 @@ specs:
 
 ## Opis produktu
 
-Stacja pogodowa Pro to flagowy produkt Agro-Merge, zaprojektowany z myślą o wymagających warunkach polowych. Urządzenie zbiera dane meteorologiczne co 5 minut i przesyła je bezpośrednio do platformy Agro-Merge Dashboard.
+Stacja pogodowa Pro to flagowy produkt AGRO-IT, zaprojektowany z myślą o wymagających warunkach polowych. Urządzenie zbiera dane meteorologiczne co 5 minut i przesyła je bezpośrednio do platformy AGRO-IT Dashboard.
 
 ## Zastosowania
 

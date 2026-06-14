@@ -1,5 +1,5 @@
 ---
-title: "Agro-Merge Pro"
+title: "AGRO-IT Pro"
 description: "Zaawansowana licencja z analityką predykcyjną, integracjami API i wsparciem priorytetowym."
 price: "2 490 zł"
 tier: "pro"

@@ -2,7 +2,7 @@
 title: "Precyzyjne rolnictwo w 2026 — trendy i technologie"
 description: "Przegląd najważniejszych trendów w rolnictwie precyzyjnym: AI, IoT, satelity i automatyzacja."
 pubDate: 2026-01-15
-author: "Agro-Merge"
+author: "AGRO-IT"
 tags: ["trendy", "technologia", "AI"]
 ---
 
@@ -18,7 +18,7 @@ Sensory stają się tańsze i bardziej niezawodne. Edge computing — przetwarza
 
 ## Integracja danych
 
-Największą wartość przynoszą platformy łączące dane z wielu źródeł: stacje pogodowe, sensory gleby, GPS maszyn, zdjęcia satelitarne i drony. Agro-Merge Dashboard to przykład takiej integracji.
+Największą wartość przynoszą platformy łączące dane z wielu źródeł: stacje pogodowe, sensory gleby, GPS maszyn, zdjęcia satelitarne i drony. AGRO-IT Dashboard to przykład takiej integracji.
 
 ## Co dalej?
 

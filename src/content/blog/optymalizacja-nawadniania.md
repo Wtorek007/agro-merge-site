@@ -2,7 +2,7 @@
 title: "Jak optymalizować nawadnianie dzięki sensorom wilgotności gleby"
 description: "Praktyczny przewodnik po wykorzystaniu danych z sensorów do redukcji zużycia wody i poprawy plonów."
 pubDate: 2025-11-20
-author: "Agro-Merge"
+author: "AGRO-IT"
 tags: ["nawadnianie", "sensory", "poradnik"]
 ---
 
@@ -14,11 +14,11 @@ Zawartość wody w glebie (VWC — Volumetric Water Content) bezpośrednio wpły
 
 ## Jak czytać dane z sensorów?
 
-Sensory Agro-Merge mierzą wilgotność na trzech głębokościach: 10, 20 i 40 cm. Porównanie wartości na różnych głębokościach pozwala ocenić, czy woda dociera do korzeni.
+Sensory AGRO-IT mierzą wilgotność na trzech głębokościach: 10, 20 i 40 cm. Porównanie wartości na różnych głębokościach pozwala ocenić, czy woda dociera do korzeni.
 
 ## Automatyzacja nawadniania
 
-Połączenie sensorów z systemem nawadniania przez API Agro-Merge umożliwia automatyczne uruchamianie i wyłączanie nawadniania. Gospodarstwa stosujące tę metodę raportują oszczędności wody na poziomie 25–35%.
+Połączenie sensorów z systemem nawadniania przez API AGRO-IT umożliwia automatyczne uruchamianie i wyłączanie nawadniania. Gospodarstwa stosujące tę metodę raportują oszczędności wody na poziomie 25–35%.
 
 ## Podsumowanie
 

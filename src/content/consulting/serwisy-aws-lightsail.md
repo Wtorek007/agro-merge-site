@@ -16,7 +16,7 @@ AWS Lightsail to idealne rozwiązanie dla tych, którzy chcą połączyć prosto
 
 ## Co obejmuje usługa
 
-- Hosting platformy AgroMerge Dashboard
+- Hosting platformy AGRO-IT Dashboard
 - Bazy danych i storage dla danych z pól
 - Konfiguracja domen, certyfikatów SSL i CDN
 - Automatyczne backupy i disaster recovery

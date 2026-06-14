@@ -14,7 +14,7 @@ stages:
 
 Kompleksowe, interdyscyplinarne badanie, które pozwala zrozumieć i zoptymalizować działanie złożonych systemów w Twojej organizacji. Skupiam się na identyfikacji elementów, relacji i procesów zachodzących w systemie, oraz na modelowaniu różnych wariantów rozwiązań.
 
-## Zastosowanie w AgroMerge
+## Zastosowanie w AGRO-IT
 
 Analiza systemowa pozwala zrozumieć, jak dane płyną od czujnika w polu do dashboardu i decyzji operatora. Identyfikuję luki, redundancje i możliwości automatyzacji w całym łańcuchu wartości.
 

@@ -20,4 +20,4 @@ Dashboard obejmuje bieżące ceny producenta i hurtowe notowania na giełdach ro
 
 ## Źródła danych
 
-Agrostat, GUS, notowania giełdowe, dane własne AgroMerge z platformy analitycznej.
+Agrostat, GUS, notowania giełdowe, dane własne AGRO-IT z platformy analitycznej.

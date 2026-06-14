@@ -17,7 +17,7 @@ specs:
 
 ## Opis produktu
 
-Sensor wilgotności gleby Agro-Merge mierzy zawartość wody w glebie na trzech głębokościach jednocześnie. Dane pomagają optymalizować harmonogram nawadniania i oszczędzać wodę.
+Sensor wilgotności gleby AGRO-IT mierzy zawartość wody w glebie na trzech głębokościach jednocześnie. Dane pomagają optymalizować harmonogram nawadniania i oszczędzać wodę.
 
 ## Korzyści
 

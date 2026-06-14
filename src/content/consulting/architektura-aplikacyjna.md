@@ -16,7 +16,7 @@ Architektura aplikacyjna to koncepcyjny plan organizacji systemu informatycznego
 
 ## Dlaczego to ważne w rolnictwie precyzyjnym?
 
-Platformy AgroMerge łączą dane z wielu źródeł — stacje pogodowe, sensory gleby, GPS maszyn, systemy ERP. Bez spójnej architektury integracje stają się kosztowne, a rozwój systemu — ryzykowny.
+Platformy AGRO-IT łączą dane z wielu źródeł — stacje pogodowe, sensory gleby, GPS maszyn, systemy ERP. Bez spójnej architektury integracje stają się kosztowne, a rozwój systemu — ryzykowny.
 
 ## Co oferuję
 

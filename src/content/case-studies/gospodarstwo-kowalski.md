@@ -16,7 +16,7 @@ Gospodarstwo Kowalskich zarządza 320 ha upraw zbóż w trzech lokalizacjach. Br
 
 ## Rozwiązanie
 
-Wdrożyliśmy 3 stacje pogodowe Pro, 12 sensorów wilgotności gleby oraz licencję Agro-Merge Pro z analityką predykcyjną.
+Wdrożyliśmy 3 stacje pogodowe Pro, 12 sensorów wilgotności gleby oraz licencję AGRO-IT Pro z analityką predykcyjną.
 
 ## Wyniki
 
@@ -24,5 +24,5 @@ Po pierwszym sezonie gospodarstwo odnotowało znaczące oszczędności w zużyci
 
 ## Cytat klienta
 
-> „Wreszcie widzimy, co dzieje się na polu, niezależnie od tego, gdzie jesteśmy. Dashboard Agro-Merge to nasze codzienne narzędzie pracy.”
+> „Wreszcie widzimy, co dzieje się na polu, niezależnie od tego, gdzie jesteśmy. Dashboard AGRO-IT to nasze codzienne narzędzie pracy.”
 > — Jan Kowalski, właściciel gospodarstwa

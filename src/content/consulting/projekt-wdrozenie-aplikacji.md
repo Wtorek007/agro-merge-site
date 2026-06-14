@@ -18,7 +18,7 @@ Oferuję kompleksowe usługi projektowania, budowy i wdrażania aplikacji webowy
 
 - Dashboardy i platformy analityczne dla gospodarstw
 - Systemy rezerwacyjne i zarządzania zasobami
-- Landing page, strony firmowe i blogi (jak ta strona AgroMerge)
+- Landing page, strony firmowe i blogi (jak ta strona AGRO-IT)
 - Aplikacje MVP i prototypy dla startupów agronomicznych
 - Narzędzia do automatyzacji raportów i alertów
 

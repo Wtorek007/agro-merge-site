@@ -8,7 +8,7 @@ updatedAt: 2026-06-05
 
 ## Analiza mikroekonomiczna
 
-Model oparty na danych z gospodarstw korzystających z platformy AgroMerge — koszty nasion, nawozów, paliwa, robocizny i amortyzacji maszyn.
+Model oparty na danych z gospodarstw korzystających z platformy AGRO-IT — koszty nasion, nawozów, paliwa, robocizny i amortyzacji maszyn.
 
 ## Metryki w Grafana
 
