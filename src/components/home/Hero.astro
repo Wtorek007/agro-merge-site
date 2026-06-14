@@ -2,7 +2,13 @@
 import Button from "../ui/Button.astro";
 import Logo from "../layout/Logo.astro";
 
-const words = ["PRECYZJA", "DANE", "UPRAWA"];
+const steps = [
+  "Pozyskanie danych",
+  "Analiza możliwości",
+  "Projekt rozwiązania",
+  "Kalibracja i montaż",
+  "Optymalne plony",
+];
 ---
 
 <section
@@ -41,25 +47,27 @@ const words = ["PRECYZJA", "DANE", "UPRAWA"];
             Licencje Software
           </a>
         </div>
-
-        <div class="mt-20 flex flex-wrap gap-8 md:gap-16">
-          {
-            words.map((word, i) => (
-              <div class="flex flex-col">
-                <span class="text-3xl md:text-4xl font-bold text-agro-gold/70 tracking-wider">
-                  {word}
-                </span>
-                <span class="mt-1 text-xs text-agro-copper/60 font-mono">
-                  0{i + 1}
-                </span>
-              </div>
-            ))
-          }
-        </div>
       </div>
 
       <div class="hidden lg:flex shrink-0 justify-center items-center pl-4 xl:pl-8">
         <Logo variant="hero" />
+      </div>
+    </div>
+
+    <div class="mt-16 lg:mt-20 pt-10 border-t border-agro-gold/15">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 lg:gap-6 xl:gap-5">
+        {
+          steps.map((label, i) => (
+            <div class="flex flex-col sm:items-start xl:items-center xl:text-center">
+              <span class="text-xl md:text-2xl font-bold tracking-wide text-agro-gold/75 leading-snug">
+                {label}
+              </span>
+              <span class="mt-2 text-[0.7rem] uppercase tracking-[0.2em] text-agro-copper/60 font-mono">
+                Krok-{i + 1}
+              </span>
+            </div>
+          ))
+        }
       </div>
     </div>
   </div>
