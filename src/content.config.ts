@@ -75,6 +75,16 @@ const agroAnaliza = defineCollection({
   }),
 });
 
+const amisReports = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/amis-reports" }),
+  schema: z.object({
+    title: z.string(),
+    summary: z.string(),
+    date: z.coerce.date(),
+    featured: z.boolean().default(false),
+  }),
+});
+
 export const collections = {
   hardware,
   software,
@@ -82,4 +92,5 @@ export const collections = {
   blog,
   consulting,
   "agro-analiza": agroAnaliza,
+  "amis-reports": amisReports,
 };

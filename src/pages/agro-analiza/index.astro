@@ -1,61 +1,14 @@
 ---
-import { getCollection } from "astro:content";
 import PageLayout from "../../layouts/PageLayout.astro";
-import AnalysisSections from "../../components/agro-analiza/AnalysisSections.astro";
-import GrafanaEmbed from "../../components/agro-analiza/GrafanaEmbed.astro";
-import AnalysisCard from "../../components/agro-analiza/AnalysisCard.astro";
-import SectionHeading from "../../components/ui/SectionHeading.astro";
-
-const analyses = await getCollection("agro-analiza");
-const sorted = analyses.sort((a, b) => {
-  if (a.data.featured && !b.data.featured) return -1;
-  if (!a.data.featured && b.data.featured) return 1;
-  const dateA = a.data.updatedAt?.valueOf() ?? 0;
-  const dateB = b.data.updatedAt?.valueOf() ?? 0;
-  return dateB - dateA;
-});
-
-const featured = sorted.filter((item) => item.data.featured);
-const mainDashboard = featured[0];
-const otherFeatured = featured.slice(1);
+import AgroAnalizaHub from "../../components/agro-analiza/AgroAnalizaHub.astro";
 ---
 
 <PageLayout
   title="Agro-analiza"
-  description="Dane i analizy mikro- oraz makroekonomiczne dla rolnictwa — ceny bieżące i prognozy 2, 3 i 5-letnie w Grafana."
+  description="Agro Puls — interaktywne wykresy rynkowe i raporty AMIS. Analizy eksperckie dla rolnictwa precyzyjnego bez zewnętrznych iframe."
   heading="Agro-analiza"
-  subheading="Mikro- i makroekonomiczne analizy rynku rolnego — od cen bieżących po wieloletnie prognozy produktów rolnych."
+  subheading="Informacje, analizy i raporty o Rynku Rolnym w Polsce i na Świecie"
+  showCta={false}
 >
-  <div class="max-w-6xl mx-auto space-y-16">
-    {
-      mainDashboard && (
-        <section>
-          <SectionHeading
-            title="Dashboard główny"
-            subtitle="Interaktywny podgląd kluczowych wskaźników rynku rolnego."
-          />
-          <GrafanaEmbed
-            src={mainDashboard.data.grafanaUrl}
-            title={mainDashboard.data.title}
-            height={520}
-          />
-        </section>
-      )
-    }
-
-    {
-      otherFeatured.length > 0 && (
-        <section>
-          <SectionHeading title="Wyróżnione analizy" />
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {otherFeatured.map((item) => (
-              <AnalysisCard entry={item} />
-            ))}
-          </div>
-        </section>
-      )
-    }
-
-    <AnalysisSections items={sorted} />
-  </div>
+  <AgroAnalizaHub />
 </PageLayout>

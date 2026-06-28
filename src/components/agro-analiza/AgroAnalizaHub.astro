@@ -1,0 +1,203 @@
+---
+import { getCollection } from "astro:content";
+import MarketMiniDashboard from "./MarketMiniDashboard.astro";
+import ExpertReportCard from "./ExpertReportCard.astro";
+import Button from "../ui/Button.astro";
+
+const reports = (await getCollection("amis-reports"))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
+---
+
+<div class="agro-analiza-hub">
+  <section class="agro-analiza-hub__section">
+    <MarketMiniDashboard />
+  </section>
+
+  <section
+    class="agro-analiza-hub__section agro-analiza-hub__section--reports"
+    aria-labelledby="expert-reports-heading"
+  >
+    <header class="agro-analiza-hub__header">
+      <p class="agro-analiza-hub__eyebrow">Raporty</p>
+      <h2 id="expert-reports-heading" class="agro-analiza-hub__title">
+        Analizy eksperckie i raporty rynkowe
+      </h2>
+      <p class="agro-analiza-hub__lead">
+        Tu znajdziesz najnowsze i najciekawsze analizy dotyczące obecnych i prognozowanych
+        cen oraz modele podażowo-popytowe dla produktów rolnych.
+      </p>
+    </header>
+
+    {
+      reports.length > 0 ? (
+        <div class="agro-analiza-hub__grid">
+          {reports.map((report) => (
+            <ExpertReportCard report={report} />
+          ))}
+        </div>
+      ) : (
+        <p class="agro-analiza-hub__empty">
+          Raporty AMIS pojawią się wkrótce — wróć po najnowsze analizy rynkowe.
+        </p>
+      )
+    }
+
+    <aside class="agro-analiza-hub__cta" aria-labelledby="agro-analiza-cta-heading">
+      <div class="agro-analiza-hub__cta-content">
+        <h3 id="agro-analiza-cta-heading" class="agro-analiza-hub__cta-title">
+          Chcesz przełożyć te dane na zysk w swoim gospodarstwie?
+        </h3>
+        <p class="agro-analiza-hub__cta-text">
+          Sprawdź nasze usługi mapowania pól i nawożenia precyzyjnego.
+        </p>
+      </div>
+      <Button href="/kontakt" variant="primary" size="lg" class="agro-analiza-hub__cta-button">
+        Darmowa Konsultacja
+      </Button>
+    </aside>
+  </section>
+</div>
+
+<style>
+  .agro-analiza-hub {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    max-width: 72rem;
+    margin-inline: auto;
+  }
+
+  @media (min-width: 1024px) {
+    .agro-analiza-hub {
+      gap: 4rem;
+    }
+  }
+
+  .agro-analiza-hub__section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .agro-analiza-hub__section--reports {
+    padding-top: 2.5rem;
+    border-top: 1px solid color-mix(in srgb, var(--color-agro-gold) 16%, transparent);
+  }
+
+  .agro-analiza-hub__header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-width: 42rem;
+  }
+
+  .agro-analiza-hub__eyebrow {
+    margin: 0;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-agro-copper);
+  }
+
+  .agro-analiza-hub__title {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    font-weight: 700;
+    color: var(--color-agro-primary);
+  }
+
+  .agro-analiza-hub__lead {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: color-mix(in srgb, var(--color-agro-primary) 70%, transparent);
+  }
+
+  .agro-analiza-hub__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .agro-analiza-hub__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .agro-analiza-hub__grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  .agro-analiza-hub__empty {
+    margin: 0;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    background: var(--color-agro-muted);
+    color: color-mix(in srgb, var(--color-agro-primary) 70%, transparent);
+  }
+
+  .agro-analiza-hub__cta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+    margin-top: 1rem;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    border: 1px solid color-mix(in srgb, var(--color-agro-gold) 22%, transparent);
+    background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--color-agro-primary) 92%, black) 0%,
+      var(--color-agro-surface) 100%
+    );
+  }
+
+  @media (min-width: 768px) {
+    .agro-analiza-hub__cta {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      padding: 2rem;
+    }
+  }
+
+  .agro-analiza-hub__cta-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-width: 36rem;
+  }
+
+  .agro-analiza-hub__cta-title {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
+    font-weight: 700;
+    line-height: 1.35;
+    color: var(--color-agro-muted);
+  }
+
+  .agro-analiza-hub__cta-text {
+    margin: 0;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: color-mix(in srgb, var(--color-agro-muted) 78%, transparent);
+  }
+
+  .agro-analiza-hub__cta-button {
+    flex-shrink: 0;
+    width: 100%;
+  }
+
+  @media (min-width: 768px) {
+    .agro-analiza-hub__cta-button {
+      width: auto;
+    }
+  }
+</style>

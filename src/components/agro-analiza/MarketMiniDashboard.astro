@@ -1,0 +1,366 @@
+---
+const charts = [
+  {
+    id: "wheat",
+    title: "Pszenica EBC-11",
+    subtitle: "Notowania kontraktowe",
+    unit: "EUR/t",
+    type: "area",
+    change: "+2,4%",
+    data: [
+      { time: "2026-06-01", value: 220 },
+      { time: "2026-06-02", value: 222 },
+      { time: "2026-06-03", value: 218 },
+      { time: "2026-06-04", value: 225 },
+      { time: "2026-06-05", value: 228 },
+      { time: "2026-06-06", value: 226 },
+      { time: "2026-06-07", value: 231 },
+      { time: "2026-06-08", value: 229 },
+      { time: "2026-06-09", value: 233 },
+      { time: "2026-06-10", value: 235 },
+    ],
+  },
+  {
+    id: "corn",
+    title: "Kukurydza krajowa",
+    subtitle: "Wykres świecowy",
+    unit: "PLN/t",
+    type: "candlestick",
+    change: "+1,1%",
+    data: [
+      { time: "2026-06-01", open: 890, high: 905, low: 885, close: 900 },
+      { time: "2026-06-02", open: 900, high: 912, low: 896, close: 908 },
+      { time: "2026-06-03", open: 908, high: 910, low: 892, close: 895 },
+      { time: "2026-06-04", open: 895, high: 918, low: 893, close: 915 },
+      { time: "2026-06-05", open: 915, high: 922, low: 910, close: 920 },
+      { time: "2026-06-06", open: 920, high: 924, low: 912, close: 914 },
+      { time: "2026-06-07", open: 914, high: 928, low: 911, close: 926 },
+      { time: "2026-06-08", open: 926, high: 930, low: 918, close: 922 },
+      { time: "2026-06-09", open: 922, high: 935, low: 920, close: 932 },
+      { time: "2026-06-10", open: 932, high: 938, low: 926, close: 934 },
+    ],
+  },
+  {
+    id: "npk",
+    title: "Indeks NPK",
+    subtitle: "Koszty nawozowe",
+    unit: "pkt",
+    type: "area",
+    change: "-0,8%",
+    data: [
+      { time: "2026-06-01", value: 142 },
+      { time: "2026-06-02", value: 141 },
+      { time: "2026-06-03", value: 143 },
+      { time: "2026-06-04", value: 140 },
+      { time: "2026-06-05", value: 139 },
+      { time: "2026-06-06", value: 141 },
+      { time: "2026-06-07", value: 138 },
+      { time: "2026-06-08", value: 137 },
+      { time: "2026-06-09", value: 139 },
+      { time: "2026-06-10", value: 136 },
+    ],
+  },
+];
+---
+
+<section class="agro-puls" aria-labelledby="agro-puls-heading">
+  <header class="agro-puls__header">
+    <p class="agro-puls__eyebrow">Szybki przegląd rynkowy</p>
+    <h2 id="agro-puls-heading" class="agro-puls__title">Agro Puls</h2>
+    <p class="agro-puls__lead">
+      Interaktywne wykresy i analizy dla cen kluczowych produktów rolnych
+    </p>
+  </header>
+
+  <div class="agro-puls__grid">
+    {
+      charts.map((chart) => (
+        <article
+          class="agro-puls__card"
+          data-chart-type={chart.type}
+          data-chart-data={JSON.stringify(chart.data)}
+        >
+          <header class="agro-puls__card-header">
+            <div>
+              <h3 class="agro-puls__card-title">{chart.title}</h3>
+              <p class="agro-puls__card-subtitle">{chart.subtitle}</p>
+            </div>
+            <div class="agro-puls__card-meta">
+              <span
+                class:list={[
+                  "agro-puls__change",
+                  chart.change.startsWith("-") ? "agro-puls__change--down" : "agro-puls__change--up",
+                ]}
+              >
+                {chart.change}
+              </span>
+              <span class="agro-puls__unit">{chart.unit}</span>
+            </div>
+          </header>
+          <div class="agro-puls__chart" data-chart-id={chart.id} role="img" aria-label={`Wykres: ${chart.title}`} />
+        </article>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .agro-puls {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .agro-puls__header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-width: 42rem;
+  }
+
+  .agro-puls__eyebrow {
+    margin: 0;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-agro-copper);
+  }
+
+  .agro-puls__title {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    font-weight: 700;
+    color: var(--color-agro-primary);
+  }
+
+  .agro-puls__lead {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: color-mix(in srgb, var(--color-agro-primary) 70%, transparent);
+  }
+
+  .agro-puls__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .agro-puls__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .agro-puls__grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  .agro-puls__card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1rem;
+    border: 1px solid color-mix(in srgb, var(--color-agro-gold) 18%, transparent);
+    border-radius: 1rem;
+    background: linear-gradient(
+      160deg,
+      var(--color-agro-primary) 0%,
+      var(--color-agro-surface) 55%,
+      var(--color-agro-primary-dark) 100%
+    );
+    box-shadow: 0 10px 30px color-mix(in srgb, var(--color-agro-primary-dark) 25%, transparent);
+  }
+
+  .agro-puls__card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+
+  .agro-puls__card-title {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-agro-muted);
+  }
+
+  .agro-puls__card-subtitle {
+    margin: 0.25rem 0 0;
+    font-size: 0.75rem;
+    color: color-mix(in srgb, var(--color-agro-gold) 75%, white);
+  }
+
+  .agro-puls__card-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.25rem;
+    flex-shrink: 0;
+  }
+
+  .agro-puls__change {
+    font-size: 0.75rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .agro-puls__change--up {
+    color: #7dd3a8;
+  }
+
+  .agro-puls__change--down {
+    color: #f0a08c;
+  }
+
+  .agro-puls__unit {
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--color-agro-gold) 60%, white);
+  }
+
+  .agro-puls__chart {
+    width: 100%;
+    height: 220px;
+    min-height: 200px;
+    border-radius: 0.75rem;
+    overflow: hidden;
+  }
+
+  @media (min-width: 768px) {
+    .agro-puls__chart {
+      height: 240px;
+    }
+  }
+</style>
+
+<script>
+  import {
+    AreaSeries,
+    CandlestickSeries,
+    ColorType,
+    createChart,
+    type IChartApi,
+  } from "lightweight-charts";
+
+  type AreaPoint = { time: string; value: number };
+  type CandlePoint = {
+    time: string;
+    open: number;
+    high: number;
+    low: number;
+    close: number;
+  };
+
+  const chartTheme = {
+    layout: {
+      background: { type: ColorType.Solid, color: "transparent" },
+      textColor: "rgba(197, 160, 89, 0.85)",
+      fontSize: 11,
+    },
+    grid: {
+      vertLines: { color: "rgba(197, 160, 89, 0.08)" },
+      horzLines: { color: "rgba(197, 160, 89, 0.08)" },
+    },
+    rightPriceScale: {
+      borderColor: "rgba(197, 160, 89, 0.15)",
+    },
+    timeScale: {
+      borderColor: "rgba(197, 160, 89, 0.15)",
+      fixLeftEdge: true,
+      fixRightEdge: true,
+    },
+    crosshair: {
+      vertLine: { color: "rgba(197, 160, 89, 0.35)" },
+      horzLine: { color: "rgba(197, 160, 89, 0.35)" },
+    },
+  };
+
+  const charts: IChartApi[] = [];
+  const observers: ResizeObserver[] = [];
+
+  function destroyCharts() {
+    observers.forEach((observer) => observer.disconnect());
+    observers.length = 0;
+
+    charts.forEach((chart) => {
+      try {
+        chart.remove();
+      } catch {
+        /* chart already removed */
+      }
+    });
+    charts.length = 0;
+  }
+
+  function initCharts() {
+    const cards = document.querySelectorAll<HTMLElement>(".agro-puls__card");
+
+    cards.forEach((card) => {
+      const container = card.querySelector<HTMLElement>(".agro-puls__chart");
+      if (!container || container.clientWidth === 0) return;
+
+      const chartType = card.dataset.chartType ?? "area";
+      const rawData = card.dataset.chartData;
+      if (!rawData) return;
+
+      const chart = createChart(container, {
+        ...chartTheme,
+        width: container.clientWidth,
+        height: container.clientHeight || 220,
+        handleScroll: { mouseWheel: false, pressedMouseMove: true },
+        handleScale: { mouseWheel: false, pinch: true },
+      });
+
+      if (chartType === "candlestick") {
+        const series = chart.addSeries(CandlestickSeries, {
+          upColor: "#7dd3a8",
+          downColor: "#f0a08c",
+          borderUpColor: "#7dd3a8",
+          borderDownColor: "#f0a08c",
+          wickUpColor: "#7dd3a8",
+          wickDownColor: "#f0a08c",
+        });
+        series.setData(JSON.parse(rawData) as CandlePoint[]);
+      } else {
+        const series = chart.addSeries(AreaSeries, {
+          lineColor: "#c5a059",
+          topColor: "rgba(197, 160, 89, 0.35)",
+          bottomColor: "rgba(197, 160, 89, 0.02)",
+          lineWidth: 2,
+        });
+        series.setData(JSON.parse(rawData) as AreaPoint[]);
+      }
+
+      chart.timeScale().fitContent();
+
+      const observer = new ResizeObserver(() => {
+        if (!container.isConnected) return;
+        chart.applyOptions({
+          width: container.clientWidth,
+          height: container.clientHeight || 220,
+        });
+      });
+
+      observer.observe(container);
+      observers.push(observer);
+      charts.push(chart);
+    });
+  }
+
+  function boot() {
+    destroyCharts();
+    initCharts();
+  }
+
+  boot();
+
+  document.addEventListener("astro:before-swap", destroyCharts);
+  document.addEventListener("astro:page-load", boot);
+</script>
